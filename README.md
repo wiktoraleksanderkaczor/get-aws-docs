@@ -88,12 +88,28 @@ text_chunks/<service>/<version>/<guide>/<name>/pages-001-010.md     # chunked
 ```json
 {
   "version": 1,
-  "updated_at": "<ISO8601>",
-  "downloads":           { "<url>":      { "etag": "...", "local_size": ..., ... } },
-  "conversions":         { "<pdf path>": { "pdf_size": ..., "ocr_pages": ..., ... } },
+  "updated_at": "2026-05-18T12:00:00Z",
+  "downloads": {
+    "https://docs.aws.amazon.com/.../guide.pdf": {
+      "etag": "\"abc123\"",
+      "last_modified": "Wed, 01 Jan 2025 00:00:00 GMT",
+      "local_size": 1048576,
+      "local_mtime": 1700000000.0,
+      "status": "ok"
+    }
+  },
+  "conversions": {
+    "documentation/.../guide.pdf": {
+      "pdf_size": 1048576,
+      "pdf_mtime": 1700000000.0,
+      "native_pages": 42,
+      "ocr_pages": 3,
+      "status": "ok"
+    }
+  },
   "conversions_chunked": {
-    "1":  { "<pdf path>": { ... } },
-    "10": { "<pdf path>": { ... } }
+    "1":  { "documentation/.../guide.pdf": { "pages_per_file": 1,  "page_count": 45 } },
+    "10": { "documentation/.../guide.pdf": { "pages_per_file": 10, "page_count": 45 } }
   }
 }
 ```
